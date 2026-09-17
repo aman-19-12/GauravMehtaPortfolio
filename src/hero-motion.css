@@ -1,0 +1,232 @@
+/* =========================================================
+   HERO CAMERA — FOREGROUND + SUBTLE MOTION
+========================================================= */
+
+
+/* Make sure the hero creates a clean stacking context */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+
+/* Background elements remain behind */
+
+.hero-word {
+  z-index: 1 !important;
+}
+
+.hero-red-glow {
+  z-index: 0 !important;
+}
+
+
+/* Gradient overlay stays behind camera */
+
+.hero::after {
+  z-index: 2 !important;
+}
+
+
+/* =========================================================
+   CAMERA FOREGROUND
+========================================================= */
+
+.hero-product,
+.hero-main-image {
+
+  position: absolute;
+
+  z-index: 30 !important;
+
+  pointer-events: none;
+
+  /*
+    Smaller than current version.
+    This gives typography and image breathing room.
+  */
+
+  width:
+    clamp(390px, 31vw, 570px);
+
+  left: 43%;
+
+  top: 15%;
+
+  transform:
+    translate3d(0,0,0)
+    rotate(-5deg);
+
+  will-change:
+    transform;
+
+  animation:
+    heroCameraFloat 6s
+    ease-in-out
+    infinite;
+}
+
+
+/* Image itself */
+
+.hero-product img,
+.hero-main-image img {
+
+  position: relative;
+
+  z-index: 31;
+
+  width: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 28px 28px
+      rgba(0,0,0,.78)
+    );
+}
+
+
+/* =========================================================
+   SUBTLE CAMERA FLOAT
+========================================================= */
+
+@keyframes heroCameraFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translate3d(0,0,0)
+      rotate(-5deg);
+  }
+
+  50% {
+
+    transform:
+      translate3d(0,-9px,0)
+      rotate(-4.2deg);
+  }
+}
+
+
+/* =========================================================
+   HERO TEXT ABOVE BACKGROUND,
+   BELOW CAMERA WHEN THEY OVERLAP
+========================================================= */
+
+.hero-copy {
+
+  z-index: 20;
+}
+
+
+/* =========================================================
+   SIDE PHOTO
+========================================================= */
+
+.hero-side-image {
+
+  z-index: 35 !important;
+
+  box-shadow:
+    0 12px 25px
+    rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   HERO FOOTER ELEMENTS
+========================================================= */
+
+.hero-footer {
+
+  z-index: 40 !important;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1500px) {
+
+  .hero-product,
+  .hero-main-image {
+
+    width: 555px;
+
+    left: 43%;
+
+    top: 14%;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero-product,
+  .hero-main-image {
+
+    width: 49vw;
+
+    left: 44%;
+
+    top: 19%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .hero-product,
+  .hero-main-image {
+
+    width: 325px;
+
+    left: 50%;
+
+    top: 47%;
+
+    transform:
+      translateX(-50%)
+      rotate(-5deg);
+
+    animation:
+      heroCameraFloatMobile 6s
+      ease-in-out
+      infinite;
+  }
+
+  @keyframes heroCameraFloatMobile {
+
+    0%,
+    100% {
+
+      transform:
+        translateX(-50%)
+        translateY(0)
+        rotate(-5deg);
+    }
+
+    50% {
+
+      transform:
+        translateX(-50%)
+        translateY(-7px)
+        rotate(-4deg);
+    }
+  }
+}

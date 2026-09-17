@@ -1,0 +1,453 @@
+/* =========================================================
+   PAGE 2 — HELPER VARIABLES & ROOT SYSTEM
+========================================================= */
+
+:root {
+  --arc-radius: clamp(350px, 32vw, 450px);
+}
+
+
+/* =========================================================
+   PAGE 2 CONTAINER & STAGE
+========================================================= */
+
+.page2 {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.page2-artboard {
+  position: relative;
+  width: 100%;
+  height: clamp(820px, 95vh, 1100px);
+  min-height: 780px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 58%,
+      rgba(255, 25, 0, 0.48) 0%,
+      rgba(160, 0, 0, 0.22) 38%,
+      transparent 72%
+    ),
+    linear-gradient(
+      to bottom,
+      #000000 0%,
+      #000000 24%,
+      #100000 48%,
+      #500000 74%,
+      #ff1800 100%
+    );
+}
+
+
+/* =========================================================
+   TOP CAMERA (SUBTLE / HIDDEN BEHIND ARCH)
+========================================================= */
+
+.p2-top-camera {
+  position: absolute;
+  left: 50%;
+  top: -80px;
+  width: clamp(200px, 16vw, 280px);
+  transform: translateX(-50%) rotate(-6deg);
+  opacity: 0.15;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.p2-top-camera img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* =========================================================
+   TRUE HALF-DONUT / SEMICIRCLE GALLERY (EXPLICIT ARCH)
+========================================================= */
+
+.p2-gallery {
+  position: absolute;
+  left: 50%;
+  /* Pivot center positioned below center camera for true arch orbit */
+  top: 70%;
+  width: 0;
+  height: 0;
+  z-index: 8;
+}
+
+
+/* =========================================================
+   COMMON PHOTO SLICE
+========================================================= */
+
+.p2-photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background: #111;
+  border: 2px solid rgba(255, 40, 15, 0.95);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+  transform-origin: 50% 100%;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.p2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* =========================================================
+   SECTOR SLICES — CLIP-PATH & ORBITAL ROTATION
+========================================================= */
+
+/* 1 — FAR LEFT (-48 deg, lowest left) */
+.p2-photo-1 {
+  width: 115px;
+  height: 155px;
+  transform:
+    translate(-50%, -100%)
+    rotate(-48deg)
+    translateY(calc(var(--arc-radius) * -1))
+    scale(0.85);
+  clip-path: polygon(18% 0%, 100% 12%, 84% 100%, 0% 84%);
+  z-index: 1;
+}
+
+/* 2 — INNER LEFT (-24 deg, rising) */
+.p2-photo-2 {
+  width: 125px;
+  height: 165px;
+  transform:
+    translate(-50%, -100%)
+    rotate(-24deg)
+    translateY(calc(var(--arc-radius) * -1))
+    scale(0.93);
+  clip-path: polygon(8% 0%, 100% 4%, 92% 100%, 0% 95%);
+  z-index: 2;
+}
+
+/* 3 — TOP CENTER (0 deg, highest peak) */
+.p2-photo-3 {
+  width: 135px;
+  height: 180px;
+  transform:
+    translate(-50%, -100%)
+    rotate(0deg)
+    translateY(calc(var(--arc-radius) * -1))
+    scale(1.00);
+  clip-path: polygon(4% 0%, 96% 0%, 100% 100%, 0% 100%);
+  z-index: 4;
+}
+
+/* 4 — INNER RIGHT (+24 deg, rising) */
+.p2-photo-4 {
+  width: 125px;
+  height: 165px;
+  transform:
+    translate(-50%, -100%)
+    rotate(24deg)
+    translateY(calc(var(--arc-radius) * -1))
+    scale(0.93);
+  clip-path: polygon(0% 4%, 92% 0%, 100% 95%, 8% 100%);
+  z-index: 2;
+}
+
+/* 5 — FAR RIGHT (+48 deg, lowest right) */
+.p2-photo-5 {
+  width: 115px;
+  height: 155px;
+  transform:
+    translate(-50%, -100%)
+    rotate(48deg)
+    translateY(calc(var(--arc-radius) * -1))
+    scale(0.85);
+  clip-path: polygon(0% 12%, 82% 0%, 100% 84%, 16% 100%);
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CENTER CAMERA — OVERLAPPING INSIDE THE ARCH HOLLOW
+========================================================= */
+
+.p2-center-camera {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: clamp(320px, 30vw, 440px);
+  transform: translateX(-50%);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.p2-center-camera img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 22px 32px rgba(0, 0, 0, 0.88));
+}
+
+
+/* =========================================================
+   BLACK OVERLAY & STORY COPY FOR CAMERA ZOOM TRANSITION
+========================================================= */
+
+.camera-black-overlay {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.camera-transition-copy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(800px, 90%);
+  text-align: center;
+  z-index: 110;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.camera-transition-copy span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #777777;
+  font-family: 'Inter', sans-serif;
+}
+
+.camera-transition-copy h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(55px, 7vw, 110px);
+  line-height: 0.85;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.camera-transition-copy em {
+  color: #ff1608;
+  font-style: normal;
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.p2-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 115px;
+  padding: 20px 6% 14px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  z-index: 30;
+  align-items: start;
+}
+
+.p2-footer-column h4 {
+  margin: 0 0 9px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.p2-footer-column a {
+  display: block;
+  color: #888888;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 1.85;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.p2-footer-column a:hover {
+  color: #ffffff;
+}
+
+.p2-footer-social {
+  text-align: right;
+}
+
+.p2-footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  color: #888888;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.p2-footer-center strong {
+  margin-bottom: 4px;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESKTOP TUNING (min-width: 1100px)
+========================================================= */
+
+@media (min-width: 1100px) {
+  :root {
+    --arc-radius: 410px;
+  }
+
+  .p2-gallery {
+    top: 70%;
+  }
+
+  .p2-center-camera {
+    top: 50%;
+    width: 420px;
+  }
+}
+
+
+/* =========================================================
+   TABLET TUNING (max-width: 900px)
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --arc-radius: 310px;
+  }
+
+  .p2-gallery {
+    top: 68%;
+  }
+
+  .p2-photo-1, .p2-photo-5 {
+    width: 90px;
+    height: 125px;
+  }
+
+  .p2-photo-2, .p2-photo-4 {
+    width: 100px;
+    height: 135px;
+  }
+
+  .p2-photo-3 {
+    width: 110px;
+    height: 145px;
+  }
+
+  .p2-center-camera {
+    top: 52%;
+    width: 320px;
+  }
+
+  .p2-footer {
+    height: 110px;
+    padding: 16px 4% 10px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE TUNING (max-width: 600px)
+========================================================= */
+
+@media (max-width: 600px) {
+  :root {
+    --arc-radius: clamp(150px, 42vw, 210px);
+  }
+
+  .page2-artboard {
+    height: 680px;
+    min-height: 680px;
+  }
+
+  .p2-gallery {
+    top: 65%;
+  }
+
+  .p2-photo-1 {
+    width: 58px;
+    height: 80px;
+    transform:
+      translate(-50%, -100%)
+      rotate(-30deg)
+      translateY(calc(var(--arc-radius) * -1))
+      scale(0.82);
+  }
+
+  .p2-photo-2 {
+    width: 66px;
+    height: 90px;
+    transform:
+      translate(-50%, -100%)
+      rotate(-15deg)
+      translateY(calc(var(--arc-radius) * -1))
+      scale(0.90);
+  }
+
+  .p2-photo-3 {
+    width: 76px;
+    height: 104px;
+    transform:
+      translate(-50%, -100%)
+      rotate(0deg)
+      translateY(calc(var(--arc-radius) * -1))
+      scale(1.00);
+  }
+
+  .p2-photo-4 {
+    width: 66px;
+    height: 90px;
+    transform:
+      translate(-50%, -100%)
+      rotate(15deg)
+      translateY(calc(var(--arc-radius) * -1))
+      scale(0.90);
+  }
+
+  .p2-photo-5 {
+    width: 58px;
+    height: 80px;
+    transform:
+      translate(-50%, -100%)
+      rotate(30deg)
+      translateY(calc(var(--arc-radius) * -1))
+      scale(0.82);
+  }
+
+  .p2-center-camera {
+    top: 52%;
+    width: min(74vw, 240px);
+  }
+
+  .p2-footer {
+    display: none;
+  }
+}

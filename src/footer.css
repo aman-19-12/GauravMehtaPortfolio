@@ -1,0 +1,223 @@
+/* =========================================================
+   PREMIUM FOOTER
+========================================================= */
+
+.p2-footer {
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+
+  min-height: 155px;
+
+  padding:
+    24px 4.5% 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
+  align-items: start;
+
+  background: #000;
+
+  border-top:
+    1px solid rgba(255,255,255,.16);
+
+  z-index: 50;
+}
+
+
+/* =========================================================
+   FOOTER LEFT / RIGHT
+========================================================= */
+
+.p2-footer-column h4 {
+
+  margin: 0 0 12px;
+
+  font-size: 10px;
+
+  line-height: 1;
+
+  letter-spacing: 1.2px;
+
+  font-weight: 700;
+
+  color: #fff;
+}
+
+
+.p2-footer-column a {
+
+  display: block;
+
+  width: fit-content;
+
+  margin-bottom: 5px;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+
+  color: #777;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.p2-footer-column a:hover {
+
+  color: #fff;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.p2-footer-center {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  text-align: center;
+
+  gap: 3px;
+
+  color: #777;
+
+  font-size: 8px;
+
+  line-height: 1.6;
+}
+
+
+.p2-footer-center strong {
+
+  margin-bottom: 7px;
+
+  color: #fff;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.p2-footer-social {
+
+  text-align: right;
+}
+
+.p2-footer-social a {
+
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   SMALL RED ACCENT
+========================================================= */
+
+.p2-footer-column h4::before {
+
+  content: "";
+
+  display: inline-block;
+
+  width: 15px;
+  height: 1px;
+
+  margin-right: 7px;
+
+  margin-bottom: 3px;
+
+  background: #ff1608;
+}
+
+
+/* =========================================================
+   RESPONSIVE FOOTER
+========================================================= */
+
+@media (max-width: 768px) {
+  .p2-footer,
+  .main-footer {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+    padding: 45px 20px 35px;
+    min-height: auto;
+    height: auto;
+  }
+
+  .p2-footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p2-footer-column h4 {
+    font-size: 11px;
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .p2-footer-column h4::before {
+    display: none;
+  }
+
+  .p2-footer-column a {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+  }
+
+  .p2-footer-social {
+    text-align: center;
+  }
+
+  .p2-footer-social a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .p2-footer-center {
+    font-size: 11px;
+    line-height: 1.8;
+    gap: 5px;
+  }
+
+  .p2-footer-center strong {
+    font-size: 18px;
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+  }
+}

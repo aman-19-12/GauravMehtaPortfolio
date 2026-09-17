@@ -1,0 +1,1529 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root {
+  --red: #ff1608;
+  --red-dark: #8c0000;
+  --black: #020202;
+  --white: #f6f6f6;
+  --muted: #8a8a8a;
+  --line: rgba(255,255,255,.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+/* Accessibility & SEO utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  padding: 0 3.4vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 50;
+}
+
+.brand {
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.desktop-nav {
+
+  display: flex;
+
+  gap: 28px;
+
+  margin-right: auto;
+  margin-left: 50px;
+}
+
+.desktop-nav a {
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,.78);
+
+  letter-spacing: .4px;
+
+  transition: .3s;
+}
+
+.desktop-nav a:hover {
+  color: var(--red);
+}
+
+.nav-actions {
+
+  display: flex;
+
+  gap: 12px;
+}
+
+.nav-actions button {
+
+  border: 0;
+
+  background: transparent;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  opacity: .8;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 48% 8%,
+      rgba(190,0,0,.92) 0%,
+      rgba(95,0,0,.72) 20%,
+      rgba(25,0,0,.85) 44%,
+      #020202 72%
+    );
+}
+
+
+/* Deep black lower fade */
+
+.hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 40%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000
+    );
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+
+/* Red center glow */
+
+.hero-red-glow {
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  left: 38%;
+  top: 2%;
+
+  background: rgba(255,0,0,.28);
+
+  filter: blur(150px);
+
+  z-index: 0;
+}
+
+
+/* Giant background typography */
+
+.hero-word {
+
+  position: absolute;
+
+  top: 4%;
+
+  left: 7%;
+
+  font-family: Oswald, sans-serif;
+
+  font-size:
+    clamp(270px, 27vw, 525px);
+
+  font-weight: 700;
+
+  line-height: .78;
+
+  letter-spacing: -15px;
+
+  color: #f5f3f3;
+
+  z-index: 1;
+
+  user-select: none;
+}
+
+
+/* =====================================================
+   HERO FRAME
+===================================================== */
+
+.hero-frame {
+
+  position: absolute;
+
+  width: 84px;
+  height: 48px;
+
+  z-index: 4;
+
+  opacity: .75;
+}
+
+.hero-frame-left {
+
+  top: 15%;
+
+  left: 5%;
+
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+.hero-frame-right {
+
+  top: 15%;
+
+  right: 5%;
+
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  z-index: 4;
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-copy {
+
+  position: absolute;
+
+  z-index: 10;
+
+  left: 7%;
+
+  top: 27%;
+
+  width: 340px;
+}
+
+.eyebrow {
+
+  display: block;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,.6);
+
+  margin-bottom: 13px;
+}
+
+.hero-copy h1 {
+
+  font-size:
+    clamp(53px, 5.2vw, 88px);
+
+  line-height: .83;
+
+  font-weight: 900;
+
+  letter-spacing: -5px;
+}
+
+.hero-copy h1 span {
+
+  color: #ff1600;
+
+  display: block;
+}
+
+.hero-copy .white {
+  color: #fff;
+}
+
+.hero-copy .red {
+  color: var(--red);
+}
+
+.hero-copy p {
+
+  margin-top: 24px;
+
+  width: 270px;
+
+  font-size: 10px;
+
+  line-height: 1.65;
+
+  color: rgba(255,255,255,.68);
+}
+
+.hero-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 24px;
+
+  padding: 13px 19px;
+
+  border: 1px solid rgba(255,255,255,.4);
+
+  font-size: 8px;
+
+  letter-spacing: 1.8px;
+
+  transition: .3s;
+}
+
+.hero-button span {
+  color: var(--red);
+  font-size: 13px;
+}
+
+.hero-button:hover {
+
+  background: #fff;
+
+  color: #000;
+}
+
+
+/* =====================================================
+   MAIN HERO IMAGE
+===================================================== */
+
+.hero-main-image {
+
+  position: absolute;
+
+  z-index: 8;
+
+  top: 15%;
+
+  left: 42%;
+
+  width:
+    clamp(460px, 47vw, 850px);
+
+  transform:
+    rotate(-5deg);
+
+  pointer-events: none;
+}
+
+.hero-main-image img {
+
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      25px 35px 35px rgba(0,0,0,.8)
+    );
+
+  animation:
+    cameraFloat 5s ease-in-out infinite;
+}
+
+.hero-glow {
+
+  position: absolute;
+
+  width: 75%;
+
+  height: 75%;
+
+  left: 12%;
+
+  top: 15%;
+
+  background: #ff1800;
+
+  filter: blur(110px);
+
+  opacity: 0.3;
+
+  z-index: 1;
+}
+
+
+@keyframes cameraFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+
+/* =====================================================
+   SIDE IMAGE
+===================================================== */
+
+.hero-side-image {
+
+  position: absolute;
+
+  right: 7%;
+
+  top: 29%;
+
+  width: 75px;
+
+  height: 110px;
+
+  overflow: hidden;
+
+  transform:
+    rotate(10deg);
+
+  z-index: 10;
+
+  border:
+    2px solid rgba(255,255,255,.6);
+}
+
+
+.hero-side-image img {
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.hero-bottom {
+
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+
+  bottom: 11%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: end;
+
+  z-index: 10;
+}
+
+
+.gallery-profile {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+
+.profile-stack {
+
+  display: flex;
+}
+
+
+.profile-stack span {
+
+  width: 24px;
+
+  height: 24px;
+
+  margin-right: -6px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #777,
+      #111
+    );
+
+  border:
+    1px solid #fff;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 10px;
+}
+
+
+.profile-stack span:last-child {
+
+  background: #ff1600;
+
+  color: #fff;
+}
+
+
+.hero-bottom > p {
+
+  text-align: right;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  color: rgba(255,255,255,.7);
+}
+
+
+/* =====================================================
+   STUDIO
+===================================================== */
+
+.studio {
+
+  position: relative;
+
+  min-height: 850px;
+
+  overflow: hidden;
+
+  padding:
+    100px 7%;
+
+  background: #000;
+}
+
+
+.studio-left {
+
+  position: relative;
+
+  z-index: 4;
+
+  width: 40%;
+
+  padding-top: 30px;
+}
+
+
+.section-tag {
+
+  display: inline-block;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #ff1600;
+
+  margin-bottom: 18px;
+}
+
+
+.studio-left h2 {
+
+  font-size:
+    clamp(42px, 5vw, 75px);
+
+  line-height: 0.92;
+
+  font-weight: 800;
+
+  letter-spacing: -3px;
+}
+
+
+.studio-left h2 span {
+  color: #ff1600;
+}
+
+
+/* =====================================================
+   SERVICES CARD
+===================================================== */
+
+.services-card {
+
+  width: 210px;
+
+  margin-top: 35px;
+
+  padding: 18px;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff1500,
+      #7d0000
+    );
+
+  box-shadow:
+    0 20px 40px
+    rgba(255,0,0,0.2);
+}
+
+
+.services-card h3 {
+
+  font-size: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+.services-card p {
+
+  font-size: 7px;
+
+  color: rgba(255,255,255,0.75);
+
+  line-height: 1.9;
+}
+
+
+/* =====================================================
+   STUDIO CAMERA
+===================================================== */
+
+.studio-right {
+
+  position: absolute;
+
+  right: 9%;
+
+  top: 10%;
+
+  width:
+    clamp(350px, 40vw, 610px);
+
+  z-index: 2;
+}
+
+
+.studio-right img {
+
+  position: relative;
+
+  z-index: 2;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      20px 30px 35px
+      rgba(0,0,0,0.85)
+    );
+}
+
+
+.studio-image-glow {
+
+  position: absolute;
+
+  inset: 20%;
+
+  background: #b00000;
+
+  filter: blur(120px);
+
+  opacity: 0.18;
+}
+
+
+/* =====================================================
+   BIG PHOTOGRAPHY TYPE
+===================================================== */
+
+.studio-title {
+
+  position: absolute;
+
+  bottom: 75px;
+
+  left: 2%;
+
+  font-family: Oswald, sans-serif;
+
+  font-weight: 700;
+
+  font-size:
+    clamp(110px, 18vw, 300px);
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  line-height: 0.8;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #7c3f3f 0%,
+      #190707 45%,
+      #000 70%
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  z-index: 1;
+
+  user-select: none;
+}
+
+
+.studio-subtitle {
+
+  position: absolute;
+
+  bottom: 18px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size:
+    clamp(15px, 2vw, 24px);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  z-index: 5;
+}
+
+
+.studio-subtitle span {
+
+  display: block;
+
+  color: #fff;
+}
+
+
+/* =====================================================
+   NAV CONTACT BUTTON
+===================================================== */
+
+.nav-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 22, 8, 0.6);
+  border-radius: 30px;
+  background: rgba(255, 22, 8, 0.1);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.nav-contact-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(255, 22, 8, 0.4);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.hero-btn-secondary {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.hero-btn-secondary:hover {
+  border-color: var(--red) !important;
+  color: var(--red) !important;
+  background: rgba(255, 22, 8, 0.08) !important;
+}
+
+
+/* =====================================================
+   STUDENT IDENTITY CARD
+===================================================== */
+
+.identity-section {
+  position: relative;
+  width: 100%;
+  padding: 40px 6vw;
+  background: #020202;
+  z-index: 10;
+}
+
+.identity-card {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0d0000 0%, #050505 50%, #120000 100%);
+  border: 1px solid rgba(255, 22, 8, 0.3);
+  border-radius: 12px;
+  padding: 35px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(255, 22, 8, 0.05);
+}
+
+.identity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.identity-tag {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.identity-badge {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.identity-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.identity-main h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.identity-program {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.identity-institution {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #888888;
+  font-weight: 500;
+}
+
+.identity-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 30px;
+}
+
+.identity-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #666666;
+  margin-bottom: 2px;
+}
+
+.meta-value {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   MY APPROACH / WHY MEDIA?
+===================================================== */
+
+.approach-section {
+  position: relative;
+  padding: 100px 6vw;
+  background: #000000;
+}
+
+.approach-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.approach-header {
+  margin-bottom: 40px;
+}
+
+.approach-header h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(45px, 7vw, 90px);
+  line-height: 0.88;
+  font-weight: 700;
+}
+
+.approach-header h2 span {
+  color: var(--red);
+}
+
+.approach-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.5;
+  color: #e0e0e0;
+  font-weight: 300;
+  border-left: 3px solid var(--red);
+  padding-left: 25px;
+  margin-bottom: 70px;
+  max-width: 950px;
+}
+
+.approach-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.pillar-card {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 35px 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 22, 8, 0.5);
+}
+
+.pillar-num {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  color: var(--red);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.pillar-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.pillar-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #777777;
+}
+
+
+/* =====================================================
+   MEDIA STATEMENT BANNER
+===================================================== */
+
+.media-banner {
+  width: 100%;
+  padding: 50px 0;
+  background: #0a0000;
+  border-top: 1px solid rgba(255, 22, 8, 0.2);
+  border-bottom: 1px solid rgba(255, 22, 8, 0.2);
+  overflow: hidden;
+}
+
+.media-banner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  flex-wrap: wrap;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(32px, 5.5vw, 85px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.media-banner-content .highlight {
+  color: var(--red);
+}
+
+
+/* =====================================================
+   CAMPUS STORIES (PHOTO FRAME PLACEHOLDERS)
+===================================================== */
+
+.campus-stories {
+  padding: 110px 6vw;
+  background: #020202;
+}
+
+.campus-intro {
+  width: min(1180px, 100%);
+  margin: 0 auto 60px;
+}
+
+.campus-intro h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(45px, 7vw, 90px);
+  line-height: 0.88;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.campus-intro h2 span {
+  color: var(--red);
+}
+
+.campus-intro p {
+  font-size: 14px;
+  color: #777777;
+  max-width: 500px;
+}
+
+.campus-grid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.campus-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #090909;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.campus-frame:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+
+.frame-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.frame-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.campus-frame:hover .frame-photo img {
+  transform: scale(1.04);
+}
+
+.frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.campus-frame:hover .frame-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.frame-num {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3px 9px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.frame-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 12px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+
+/* =====================================================
+   CONTACT & ABOUT SECTION
+===================================================== */
+
+.contact-section {
+  padding: 120px 6vw;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(45px, 6.5vw, 85px);
+  line-height: 0.85;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.contact-left h2 span {
+  color: var(--red);
+}
+
+.contact-sub {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #777777;
+  margin-bottom: 35px;
+  max-width: 440px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--red);
+  color: #ffffff;
+  border-radius: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  background: #d80e02;
+}
+
+.about-card {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.about-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1.5px;
+  color: var(--red);
+  margin-bottom: 18px;
+}
+
+.about-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #888888;
+  margin-bottom: 15px;
+}
+
+.about-details {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.about-detail span {
+  color: #666666;
+  letter-spacing: 1.5px;
+}
+
+.about-detail strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   RESPONSIVE OVERRIDES FOR MEDIA SECTIONS & MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+  .identity-body {
+    grid-template-columns: 1fr;
+  }
+
+  .identity-meta {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+  }
+
+  .approach-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Hero Mobile Layout */
+  .hero-word {
+    font-size: clamp(90px, 22vw, 170px);
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: -5px;
+    opacity: 0.14;
+    white-space: nowrap;
+  }
+
+  .hero-frame {
+    display: none;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 100px 20px 30px;
+    min-height: auto;
+    position: relative;
+  }
+
+  .hero-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-copy p {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-btn,
+  .hero-button,
+  .hero-btn-secondary {
+    min-height: 44px;
+    padding: 12px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-main-image,
+  .hero-product {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: rotate(-4deg) !important;
+    width: min(84vw, 340px) !important;
+    margin: 30px auto 20px !important;
+  }
+
+  .hero-side-image {
+    display: none;
+  }
+
+  .hero-bottom {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    padding: 20px 0 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .hero-bottom > p {
+    text-align: center;
+  }
+
+  /* Studio Mobile Layout */
+  .studio {
+    min-height: auto;
+    padding: 70px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .studio-left {
+    width: 100%;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .studio-left h2 {
+    font-size: clamp(34px, 8.5vw, 56px);
+  }
+
+  .services-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 30px auto 0;
+    text-align: left;
+  }
+
+  .studio-right {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(80vw, 360px);
+    margin: 35px auto 20px;
+  }
+
+  .studio-title {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    font-size: clamp(38px, 12vw, 90px);
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .studio-subtitle {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    font-size: clamp(14px, 4vw, 20px);
+    margin-top: 12px;
+  }
+
+  /* Identity & Approach Padding */
+  .identity-section,
+  .approach-section,
+  .campus-stories,
+  .contact-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .identity-card,
+  .about-card {
+    padding: 28px 20px;
+  }
+
+  .contact-btn {
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
