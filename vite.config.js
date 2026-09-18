@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/GauravMehtaPortfolio/'
+  base: process.env.GITHUB_ACTIONS === 'true'
+    ? '/GauravMehtaPortfolio/'
+    : '/'
 })
+
