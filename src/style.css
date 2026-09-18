@@ -60,7 +60,7 @@ button {
 
 .navbar {
 
-  position: absolute;
+  position: fixed;
 
   top: 0;
   left: 0;
@@ -74,7 +74,7 @@ button {
   justify-content: space-between;
   align-items: center;
 
-  z-index: 50;
+  z-index: 9999;
 }
 
 .brand {
