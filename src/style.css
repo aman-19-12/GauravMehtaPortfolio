@@ -933,16 +933,30 @@ button {
 
 .identity-main h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(36px, 5vw, 54px);
-  line-height: 0.95;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1;
   font-weight: 700;
   letter-spacing: 1px;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.identity-bio {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 14px;
+}
+
+.identity-location {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 14px;
 }
 
 .identity-program {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 2px;
   color: var(--red);
   font-weight: 700;
@@ -950,7 +964,7 @@ button {
 }
 
 .identity-institution {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1.5px;
   color: #888888;
   font-weight: 500;

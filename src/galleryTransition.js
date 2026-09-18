@@ -107,6 +107,16 @@ function getFeaturedPhotography() {
 
 const featuredPhotography = getFeaturedPhotography()
 
+function getAltForImage(src, index) {
+  const lower = (src || '').toLowerCase()
+  if (lower.includes('portrait')) return `Portrait photography by Gaurav Mehta`
+  if (lower.includes('scenic')) return `Scenic landscape photograph by Gaurav Mehta`
+  if (lower.includes('mountain')) return `Mountain landscape photograph by Gaurav Mehta`
+  if (lower.includes('event')) return `University event photography by Gaurav Mehta`
+  if (lower.includes('campus') || lower.includes('college')) return `Campus life photograph by Gaurav Mehta`
+  return `Featured photography by Gaurav Mehta`
+}
+
 function createGallery() {
   const photosHTML = featuredPhotography.map((src, index) => {
     const layoutClass =
@@ -120,7 +130,7 @@ function createGallery() {
       <article class="gallery-photo ${layoutClass}">
         <img
           src="${src}"
-          alt="Featured photography captured by Gaurav Mehta ${index + 1}"
+          alt="${getAltForImage(src, index)}"
           loading="lazy"
           decoding="async"
         />
@@ -142,16 +152,15 @@ function createGallery() {
             GAURAV MEHTA &bull; STUDENT PHOTOGRAPHER
           </span>
 
-          <h1>MY GALLERY</h1>
+          <h2>PHOTOGRAPHY PORTFOLIO</h2>
 
-          <h2>
+          <h3>
             FEATURED
             <span>PHOTOGRAPHY.</span>
-          </h2>
+          </h3>
 
           <p>
-            A curated collection of moments, places and visual stories
-            captured by Gaurav Mehta.
+            A curated collection of visual stories, portraits, campus moments and scenic photography captured by Gaurav Mehta.
           </p>
         </div>
 

@@ -90,11 +90,11 @@ document.querySelector('#app').innerHTML = `
           </p>
 
           <h1 class="hero-title">
-            <span class="sr-only">Gaurav Mehta — Student Photographer at Graphic Era Deemed to be University</span>
-            FRAME
-            <span>THE</span>
-            MOMENT.
+            GAURAV
+            <span>MEHTA</span>
           </h1>
+
+          <p class="hero-tagline">FRAME THE MOMENT.</p>
 
           <p class="hero-description">
             A first-year BBA Aviation &amp; Management student exploring photography,
@@ -179,7 +179,7 @@ document.querySelector('#app').innerHTML = `
 
 
     <!-- =========================
-         STUDENT PROFILE / IDENTITY
+         STUDENT PROFILE / IDENTITY & ABOUT
     ========================== -->
 
     <section class="identity-section" id="about">
@@ -192,7 +192,12 @@ document.querySelector('#app').innerHTML = `
 
         <div class="identity-body">
           <div class="identity-main">
-            <h2>GAURAV MEHTA</h2>
+            <h2>About Gaurav Mehta</h2>
+            <p class="identity-bio">
+              Gaurav Mehta is a first-year BBA Aviation &amp; Management student at
+              Graphic Era Deemed to be University, exploring photography,
+              visual storytelling and creative visual work. Based in Pithoragarh, Uttarakhand, India.
+            </p>
             <p class="identity-program">BBA AVIATION &amp; MANAGEMENT &bull; FIRST YEAR</p>
             <p class="identity-institution">GRAPHIC ERA DEEMED TO BE UNIVERSITY</p>
           </div>
@@ -200,7 +205,7 @@ document.querySelector('#app').innerHTML = `
           <div class="identity-meta">
             <div class="identity-meta-item">
               <span class="meta-label">HOMETOWN</span>
-              <span class="meta-value">Pithoragarh, Uttarakhand</span>
+              <span class="meta-value">Pithoragarh, Uttarakhand, India</span>
             </div>
 
             <div class="identity-meta-item">
